@@ -16,8 +16,8 @@ class AppCore {
     return AppCore.getInstance();
   }
 
-  showPlugins() {
-    return [];
+  getPlugins() {
+    return this.plugins
   }
 }
 
@@ -25,8 +25,6 @@ const core = AppCore.getInstance();
 const core2 = AppCore.getInstance();
 
 console.assert(core === core2);
-
-const plugins = core.showPlugins();
 
 const myPlugin = {};
 const myPlugin2 = {};
@@ -36,5 +34,5 @@ core
 
 console.dir(core, { deps: null });
 
-console.assert(core.plugins.length === 2);
-console.assert(core.plugins === core2.plugins);
+console.assert(core.getPlugins().length === 2);
+console.assert(core.getPlugins() === core2.getPlugins());
